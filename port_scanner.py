@@ -70,9 +70,9 @@ def port_scan(ip, port):
         sock.connect((ip, port))
         sock.close()
         state = 'open'
+        service = socket.getservbyport(port)
     except:
         return
-    service = socket.getservbyport(port)
     print(f'{port}{" " * (8 - len(str(port)))}{state}{" " * (7 - len(state))}{service}')
 
 
